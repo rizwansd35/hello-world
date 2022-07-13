@@ -19,6 +19,7 @@ pipeline {
         stage("Deploy"){
             steps{
                 sshagent(['tomcat-new']) {
+    // some block
             }   ssh """
                     scp -o StirctHostKeyChecking=no target/myweb.war ec2-user@172.31.15.167:/opt/tomcate8/webapps
                     ssh ec2-user@172.31.15.167 /opt/tomcate/bin/shutdown.sh
