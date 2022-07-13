@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage("Git") {
             steps {
-                git 'https://github.com/rizwansd35/hello-world.git'
+                //git 'https://github.com/rizwansd35/hello-world.git'//
             }
         } 
         stage(""){
