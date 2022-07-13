@@ -17,17 +17,15 @@ pipeline {
             }
         }
         stage("Deploy"){
-            sshagent(['tomcat-new']) {
-    }           ssh """
+            steps{
+                sshagent(['tomcat-new']) {
+            }   ssh """
                     scp -o StirctHostKeyChecking=no target/myweb.war ec2-user@172.31.15.167:/opt/tomcate8/webapps
-
                     ssh ec2-user@172.31.15.167 /opt/tomcate/bin/shutdown.sh
-                    
                     ssh ec2-user@172.31.15.167 /opt/tomcate/startup.sh
+                 """   
 
-                 """
-
-            
+            }
         }
-    }
+     }
 }
